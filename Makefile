@@ -45,7 +45,7 @@ clean:
 	rm -rf report/*
 
 syn/mapped.%.v: $(DIRS)
-	cd build && fc_shell -batch -f ../scripts/run.tcl -x "set T $*"
+	cd build && fc_shell -batch -f ../scripts/syn.tcl -x "set T $*"
 
 build/simv: $(OK)
 	cd build && vcs -full64 -q -sverilog -debug_access+all $(TOP)

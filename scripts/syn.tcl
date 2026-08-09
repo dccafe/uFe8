@@ -20,6 +20,8 @@ set_parasitic_parameters \
     -early_spec tlup_min \
     -late_spec  tlup_max
 
+source ../scripts/dft.tcl
+
 compile_fusion
 place_opt
 clock_opt
