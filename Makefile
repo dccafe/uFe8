@@ -26,8 +26,9 @@ sim: build/simv
 
 sim_syn: syn/mapped.1.v
 	cd build && vcs -full64 -sverilog \
+	 -debug_access+all  \
 	../tb/syn/cpu_tb.sv \
-	../syn/mapped.1.v \
+	../syn/mapped.1.v   \
 	/opt/synopsys/saed/32-edk/lib/stdcell_rvt/verilog/saed32nm.v \
 	-override_timescale=1ns/1ns \
 	-R
@@ -52,7 +53,8 @@ build/simv: $(OK)
 
 build/tb/uvm/simv: $(UVM) $(VLOG)
 	mkdir -p build/tb/uvm
-	cd build && vcs -full64 -q -sverilog -debug_access+all \
+	cd build && vcs -full64 -q -sverilog 
+		-debug_access+all           \
 		-ntb_opts uvm-ieee-2020-3.1 \
 		+incdir+../tb/uvm           \
 		-o tb/uvm/simv              \
