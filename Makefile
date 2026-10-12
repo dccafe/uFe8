@@ -53,13 +53,13 @@ build/simv: $(OK)
 
 build/tb/uvm/simv: $(UVM) $(VLOG)
 	mkdir -p build/tb/uvm
-	cd build && vcs -full64 -q -sverilog 
-		-debug_access+all           \
-		-ntb_opts uvm-ieee-2020-3.1 \
-		+incdir+../tb/uvm           \
-		-o tb/uvm/simv              \
-		../rtl/*.sv                 \
-		../tb/uvm/0.pkg.sv          \
+	cd build && vcs -full64 -q -sverilog \
+		-debug_access+all            \
+		-ntb_opts uvm-ieee-2020-3.1  \
+		+incdir+../tb/uvm            \
+		-o tb/uvm/simv               \
+		../rtl/*.sv                  \
+		../tb/uvm/0.pkg.sv           \
 		../tb/uvm/A.uvm_tb.sv
 
 build/%.sv.ok  : %.sv  | $(DIRS)
